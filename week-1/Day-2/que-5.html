@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Course enrollment</title>
+    </head>
+    <body>
+        <h1> Course Enrollment </h1>
+        <form action=".net.html" method="POST">
+            <fieldset>
+                <legend> Course Enrollment </legend>
+            <label> Student Name</label>
+            <input type="text" id="st1" name="st1" autofocus="on" >
+            <br/> <br/>
+            <label> email</label>
+            <input type="email" id="mail" name="mail" autofocus="on" >
+            <br/> <br/>
+            <label> Select Course</label>
+            <select id="course" name="course">
+                <option> Python</option>
+                <option> java</option>
+                <option> .Net</option>
+            </select>
+            <br/> <br/>
+            <label> skill set</label>
+            <meter id= "skill" name="skill" min="0" max="100"  value="60"> </meter>
+            <br/> <br/>
+            <label> Course Progress</label>
+            <progress id="progress" name="progress" min="50" max="100" value="80"></progress>
+            <br/> <br/>
+            <input type="submit" value="enroll">
+            <input type="reset" value="reset">
+            </fieldset>
+        </form>
+    </body>
+</html>
