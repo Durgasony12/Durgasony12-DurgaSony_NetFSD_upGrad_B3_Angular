@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calc</title>
+    </head>
+    <body>
+        <h1> Simple Discount Calculator </h1>
+        <script>
+            let amount="4000"
+            let Discountpercent;
+            let Discountamount;
+            let FinalAmount;
+            if(amount>=5000){
+                Discountpercent=20
+                Discountamount= (amount * Discountpercent) / 100
+                FinalAmount= amount - Discountamount
+                console.log("Discountamount = "+ Discountamount);
+                console.log("Final Amount = " + FinalAmount);
+            }
+            else if(amount>=3000) {
+                Discountpercent=10
+                Discountamount= (amount * Discountpercent) / 100
+                FinalAmount= amount - Discountamount
+                console.log("Discountamount = "+ Discountamount);
+                console.log("Final Amount = " + FinalAmount);
+            }
+            else {
+                console.log("No discount")
+            }
+        </script>
+    </body>
+</html>

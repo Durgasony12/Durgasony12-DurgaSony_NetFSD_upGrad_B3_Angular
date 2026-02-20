@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades</title>
+</head>
+<body>
+    <h1>Student Grade Evaluator  </h1>
+    <label> M1</label>
+    <input type="number" id="ma1" name="ma1" placeholder="Enter marks"/>
+    <input type="button" onclick="submitbutton()" value="submit"/> 
+    <p id="p1"> </p>
+    <script>
+        function submitbutton() {
+            let obj1= document.getElementById("ma1");
+            let paraobj=document.getElementById("p1");
+            let m1=obj1.value; 
+            if(m1 >= "75")
+            {
+                paraobj.innerText=" Grade A";
+                //console.log("Grade A");
+            }
+            else if(m1>=60)
+            {
+                paraobj.innerText=" Grade B";
+            }
+            else if(m1>=40)
+            {
+                paraobj.innerText=" Grade C";
+            }
+            else{
+                paraobj.innerText=" Fail";
+            }
+
+        }
+        
+    </script>
+</body>
+</html>
