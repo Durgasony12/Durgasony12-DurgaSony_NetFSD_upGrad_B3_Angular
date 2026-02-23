@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Simple Object-Based User Info Display </title>
+    </head>
+    <body>
+        <input type="button" onclick="displayuserinfo()"  value="user Info"/>
+        <p id="name"></p>
+        <p id="age"></p>
+        <p id="city"></p>
+        <script>
+            function displayuserinfo(){
+                let paraobj1=document.getElementById("name");
+                let paraobj2=document.getElementById("age");
+                let paraobj3=document.getElementById("city");
+                let user = {
+                    name : "Sony",
+                    age : 32,
+                    city : "Chennai"
+                }
+                paraobj1.innerText = "Name = " + user.name;
+                paraobj2.innerText = "Age = " + user.age;
+                paraobj3.innerText = "City = " + user.city;
+            }
+
+        </script>
+    </body>
+</html>

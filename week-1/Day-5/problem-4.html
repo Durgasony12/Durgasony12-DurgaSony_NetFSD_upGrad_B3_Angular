@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Dynamic Student Profile Manager  </title>
+    </head>
+    <body>
+        <h1> Student profile</h1>
+        <input type="button" onclick=" updateStudentProfile(student)" value="student profile"/>
+        <label> Updated marks </label>
+        <input type="number" id="n1" name="n1" placeholder="Enter updated marks"/>
+        <input type="button" onclick="updateMarks(student)"  value ="update marks"/>
+        <p id="name"></p>
+        <p id="rollNo"></p>
+        <p id="marks"></p>
+        <script>
+            let student = {
+                name : "sony",
+                rollNo : 8126,
+                marks : 90
+            }
+            function updateStudentProfile(student) {
+                let paraobj1=document.getElementById("name");
+                let paraobj2=document.getElementById("rollNo");
+                let paraobj3=document.getElementById("marks");
+                paraobj1.innerText = "Name = "+ student.name;
+                paraobj2.innerText = "rollNo = "+ student.rollNo;                    paraobj3.innerText = "marks = "+ student.marks;
+            }
+            function updateMarks(student){
+                let paraobj3=document.getElementById("n1");
+                let UM = paraobj3.value;
+                student.marks = UM;
+                updateStudentProfile(student);
+
+            }
+            </script>
+    </body>
+</html>
