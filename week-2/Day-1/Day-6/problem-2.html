@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Live Form Validation with Events  </title>
+    </head>
+    <body>
+        <h1> Live Form Validation with Events </h1>
+        <label> Name : </label>
+        <input type="text" id="t1" name="t1" onchange="validateName()" />
+        <br/> <br/>
+        <label> Email : </label>
+        <input type="email" id="e1" name="e1" onchange="validateEmail()" />
+        <br/> <br/>
+        <label> Age : </label>
+        <input type="number" id="a1" name="a1" onchange="validateAge()" />
+        <br/> <br/>
+        <input type="button" onclick="submitForm()"value="register"/>
+        <p id="mssg"></p>
+        <script>
+            function validateName() {
+                let obj1=document.getElementById("t1");
+                let paraobj=document.getElementById("mssg");
+                let name=obj1.value;
+                if(name.trim() == " "){
+                   paraobj.innerText = " Enter Name";
+                }
+                else{
+                    paraobj.innerText = "Valid Name";
+                }
+                
+            }
+            function validateEmail() {
+                let obj1    = document.getElementById("e1");
+                let paraobj = document.getElementById("mssg");
+                let email   = obj1.value;
+
+                if (email.trim() === "") {
+                    paraobj.innerText   = " Email cannot be empty.";
+                    
+                    return false;
+                } else if (email.indexOf("@") === -1) {
+                    paraobj.innerText   = " Email must contain '@'.";
+                   
+                    return false;
+                } else {
+                    paraobj.innerText   = " Valid email!";
+                   
+                    return true;
+                }
+            }
+            function validateAge() {
+                let obj1    = document.getElementById("a1");
+                let paraobj = document.getElementById("mssg");
+                let age     = Number(obj1.value);
+                let raw     = obj1.value;
+
+                if (raw === "") {
+                    paraobj.innerText   = " Age cannot be empty.";
+                    return false;
+                } else if (age <= 18) {
+                    paraobj.innerText   = " Age must be greater than 18.";
+                   return false;
+                } else {
+                    paraobj.innerText   = " Valid age!";
+                    return true;
+                }
+            }
+            function submitForm() {
+                let nameOk  = validateName();
+                let emailOk = validateEmail();
+                let ageOk   = validateAge();
+
+                if (!nameOk && !emailOk && !ageOk) {
+                    sessionStorage.setItem("userName",  document.getElementById("t1").value);
+                    sessionStorage.setItem("userEmail", document.getElementById("e1").value);
+                    sessionStorage.setItem("userAge",   document.getElementById("a1").value);
+
+                    document.getElementById("mssg").innerText   = " Registered successfully!";
+               
+                }
+                else{
+                    document.getElementById("mssg").innerText   = " Entervaliddata";
+                }
+
+                
+            }
+        </script>
+    </body>
+</html>

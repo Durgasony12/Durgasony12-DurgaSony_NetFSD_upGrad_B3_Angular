@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notes</title>
+    </head>
+    <body>
+        <h1> Private Notes</h1>
+        <label> Enter notes</label>
+        <br/> 
+        <textarea id="t1" rows="10" cols="50"></textarea> 
+        <br/> <br/>
+        <input type="button" onclick="f1()" value="save"/>
+        <input type="button" onclick="f2()"  value="clear"/>
+        <p id="f3"></p>
+        <script>
+            function f1(){
+                let notes= document.getElementById("t1");
+                localStorage.setItem("notes", notes.value);
+                alert("data is saved");
+            }
+            function f2(){
+                localStorage.removeItem("notes");
+                document.getElementById("t1").value="";
+                alert("notes are removed");
+            }
+            window.onload=function() {
+                let saved= localStorage.getItem("notes");
+                if (saved) {
+                    document.getElementById("t1").value=saved;
+                    document.getElementById("f3").innerText= saved;
+                }
+            }
+        </script> 
+    </body>
+</html>
