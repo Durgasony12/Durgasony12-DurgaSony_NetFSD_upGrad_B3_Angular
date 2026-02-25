@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Marks Analyzer</title>    
+    </head>
+    <body>
+        <input type="button" onclick="studentmarks()" value="submit"/>
+        <p id="total"></p>
+        <p id="avg"></p>
+        <p id="res"></p>
+        <script>
+            function studentmarks(){
+                let ar1=[50,60,70,50];
+                let total=ar1.reduce((sum,mark) => sum+mark,0);
+                let average= total/ar1.length;
+                let result= (average>=40) ? "Pass" : "Fail";
+                document.getElementById("total").innerHTML=`total marks =  ${total}`;
+                document.getElementById("avg").innerHTML=`average marks = ${average}`;
+                document.getElementById("res").innerHTML=`result  = ${result}`;
+            } 
+        </script>
+        
+
+    </body>
+</html>

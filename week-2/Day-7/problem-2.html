@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>shopping cart</title>    
+    </head>
+    <body>
+        <h1> Shopping cart Bill</h1>
+        <input type="button" onclick="totalbill()" value="total bill"/>
+        <p id="invoice" ></p>
+        <p id="total" ></p>
+        <script>
+            function totalbill() {
+                let shoppingcart = [
+                    { name : "Trouser", price : 600, quantity : 1},
+                    { name : "Shirt", price : 400, quantity : 2},
+                    { name : "kurthi", price : 900, quantity : 1},
+
+
+                ];
+                let invoice= shoppingcart.map(item => `${item.name} - ${item.price} x ${item.quantity} = ${item.price * item.quantity}`);
+                let total = shoppingcart.reduce((total,item) => total + (item.price * item.quantity),0);
+                //console.log(shoppingcart);
+                //console.log(" product invoice :");
+                document.getElementById("invoice").innerHTML=`product invoice :   ${invoice}`;
+                document.getElementById("total").innerHTML=`Total =   ${total}`;
+                //console.log(invoice);
+                //console.log("Total :" +total);
+            } 
+        </script>
+    </body>
+</html>
