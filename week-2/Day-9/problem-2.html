@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vehicle Management Syst</title> 
+    </head>
+    <body>
+        <h1> Vehicle Management Syst</h1>
+        <input type="button" onclick="getdata()" value="Get data"/>
+        
+        <p id="cinfo"></p>
+        <p id="cardetails"></p>
+        <script>
+            class Vehicle {
+                name = " ";
+                company = "";
+                constructor(name,company) {
+                    this.name=name;
+                    this.company=company;
+                }
+                displayInfo(){
+                    return `Name : ${this.name} company : ${this.company}`;
+                }
+
+            }
+            class Car extends Vehicle {
+                constructor(name,company, carname = " ",fuelType=" "){
+                    super(name,company);
+                    this.carname= carname;
+                    this.fuelType=fuelType;
+                }
+                showCarDetails(){
+                    document.getElementById("cinfo").innerHTML =`Car Info :`
+                    document.getElementById("cardetails").innerHTML = `Name : ${this.name} <br>
+                    company : ${this.company} <br>
+                    carname : ${this.carname} <br>
+                    fuelType :${this.fuelType}`;
+
+                }
+            }
+            function getdata(){
+                let c1= new Car("car","Amaze","Honda", "petrol");
+                c1.displayInfo();
+                c1.showCarDetails();
+            }
+        </script>
+    </body>
+</html>

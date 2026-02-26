@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymorphism & Method Overriding</title>
+</head>
+
+<body>
+
+    <h1>Polymorphism & Method Overriding</h1>
+    <script>
+        class Payment{
+            pay(amount){
+                console.log("Payment Processing");
+            }
+        }
+        class CreditCardPayment extends Payment {
+            pay(amount){
+                console.log(`Credit Card -> Paid ${amount} using credit card`);
+            }
+        }
+        class UPIPayment extends Payment {
+            pay(amount){
+                console.log(`UPI -> Paid ${amount} using UPI`);
+            }
+        }
+        class CashPayment extends Payment {
+            pay(amount){
+                console.log( `ash -> Paid ${amount} using cash`);
+            }
+        }
+        let p1=new  CreditCardPayment();
+        let p2=new UPIPayment();
+        let p3=new CashPayment();
+        p1.pay(500);
+        p2.pay(400);
+        p3.pay(290);
+
+    </script>
+
+</body>
+
+</html>

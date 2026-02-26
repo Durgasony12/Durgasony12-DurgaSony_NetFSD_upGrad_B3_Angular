@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>student Details</title> 
+    </head>
+    <body>
+        <h1></h1>
+        <input type="button" onclick="getdetails()" value="getDetails"/>
+        <input type="button" onclick="getGrade()" value="getGrade"/>
+        <p id="stdetails"></p>
+        <p id="stgrade"></p>
+        <script>
+            class Student {
+                constructor(name=" ", rollNumber = 0, m=0){
+                    this.name = name;
+                    this.rollNumber = rollNumber;
+                    this.m = m;
+                }
+                showDetails(){
+                    let str = `name : ${this.name} rollno: ${this.rollNumber} marks : ${this.m}`;
+                    document.getElementById("stdetails").innerText = str;
+                }
+                showGrade(){
+                    if (this.m>=90){
+                        document.getElementById("stgrade").innerHTML= `Grade A`;
+                    }
+                    else if(this.m>=75 && this.m<=89){
+                        document.getElementById("stgrade").innerHTML= `Grade B`;     
+                    }
+                    else if(this.m>=50 && this.m<=74){
+                        document.getElementById("stgrade").innerHTML= `Grade c`;
+                    }
+                    else{
+                        document.getElementById("stgrade").innerHTML= `Fail`;
+                    }
+                }
+            }
+            function getdetails(){
+                let s1= new Student("Sony", 6613,90);
+                s1.showDetails();
+            }
+            function getGrade(){
+                let s1= new Student("Sony", 6613,90);
+                s1.showGrade();
+            }
+            
+        </script>
+    </body>
+</html>
