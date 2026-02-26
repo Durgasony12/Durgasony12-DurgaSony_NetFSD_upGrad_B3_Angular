@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Report</title>    
+    </head>
+    <body>
+        <h1> Weather Data Fetcher </h1>
+        <input type="button" onclick="getreport()" value="Get Report"/>
+        <p id="data"></p>
+        <script>
+        async function getreport(){
+            try {
+                let url = "https://api.open-meteo.com/v1/forecast?latitude=17.38&longitude=78.48&current_weather=true";
+                let response = await fetch(url);
+                let data = await response.json();
+                displayWeather(data);                
+                //fetch(url).then( (response)  => response.json())
+                //.then(data => displayWeather(data));
+                }
+            catch(error){
+                documnt.getElementById("data").innerHTML = `Error fetching the data`;
+            }
+
+        }
+            
+        function displayWeather(data) {
+            let weather = data.current_weather;
+            let temperature = weather.temperature;
+            let windspeed = weather.windspeed;
+            let time = weather.time;
+            document.getElementById("data").innerHTML =
+            `Weather Report : <br>
+            Temperature : ${temperature} °C <br>
+            Wind Speed : ${windspeed} km/h <br>
+            Time : ${time}`;
+
+        }
+        </script>
+
+    </body>
+</html>
