@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Todo</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+    .completed{
+    text-decoration: line-through;
+    }
+</style>
+
+</head>
+
+<body>
+
+    <h2>Todo List</h2>
+
+    <input type="text" id="taskInput">
+    <button id="addBtn">Add</button>
+
+    <ul id="taskList"></ul>
+
+    <p>Total: <span id="total">0</span></p>
+    <p>Completed: <span id="done">0</span></p>
+
+    <script>
+
+    function updateCount(){
+        $("#total").text($("#taskList li").length);
+        $("#done").text($("#taskList li.completed").length);
+    }
+
+    $("#addBtn").click(function(){
+
+        let task = $("#taskInput").val();
+
+        if(task != ""){
+
+        $("#taskList").append(
+            "<li>"+task+
+            " <button class='complete'>Done</button>"+
+            " <button class='delete'>Delete</button>"+
+            "</li>"
+        );
+
+        $("#taskInput").val("");
+
+        updateCount();
+
+     }
+
+    });
+
+$(document).on("click",".complete",function(){
+
+    $(this).parent().toggleClass("completed");
+    updateCount();
+
+});
+
+$(document).on("click",".delete",function(){
+
+    $(this).parent().remove();
+    updateCount();
+
+});
+
+</script>
+
+</body>
+</html>

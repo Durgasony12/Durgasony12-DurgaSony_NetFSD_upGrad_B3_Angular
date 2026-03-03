@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add To Cart</title>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <h2>Cart: <span id="count">0</span></h2>
+    <div>
+    Product 1
+    <button class="btn">Add to Cart</button>
+    <span class="msg"></span>
+    </div>
+    <br>
+    <div>
+    Product 2
+    <button class="btn">Add to Cart</button>
+    <span class="msg"></span>
+    </div>
+
+    <br>
+
+    <div>
+    Product 3
+    <button class="btn">Add to Cart</button>
+    <span class="msg"></span>
+    </div>
+
+    <br>
+
+    <div>
+    Product 4
+    <button class="btn">Add to Cart</button>
+    <span class="msg"></span>
+    </div>
+
+    <script>
+
+        let cart = 0;
+
+        $(".btn").click(function(){
+
+        cart++;
+
+        $("#count").text(cart);
+
+        $(this).prop("disabled", true);
+
+        $(this).next(".msg").text(" Added to cart").css("color","green");
+
+        });
+
+    </script>
+
+</body>
+</html>

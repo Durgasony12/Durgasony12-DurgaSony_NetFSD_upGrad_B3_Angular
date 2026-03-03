@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title> Student Registration Form</title>
+        <style>
+            body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-family:Arial;
+            }
+
+            .container{
+            border:1px solid gray;
+            padding:20px;
+            border-radius:8px;
+            width:320px;
+            }
+
+            #message{
+            margin-top:9px;
+            text-align:center;
+            font-weight:bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form id="form">
+                <h3> Student feedback Form</h3>   
+                Name:
+                <br/>
+                <input type="text" id="name" name="name"/>
+                <br/><br/>
+                Email:
+                <br/>
+                <input type="email" id="email" name="email"/>
+                <br/><br/>
+                Course rating:
+                <br/>
+                <select>
+                    <option>Excellent</option>
+                    <option>Very Good</option>
+                    <option>Good</option>
+                    <option>Poor</option>
+                </select>
+                <br/><br/>
+                Comments:
+                <br/>
+                <textarea id="comments"></textarea>
+                <br/><br/>
+                <input type="button" id="b1" value="Submit"/>
+            </form>
+            <div id="message"></div>
+        </div>
+        
+        <script  src="https://code.jquery.com/jquery-4.0.0.js">		
+	    </script>
+        <script>
+            $(document).ready(function() {
+                $("#b1").click(function() {
+                    let name= $("#name").val();
+                    let email=$("#email").val();
+                    if (name == "" || email== "") {
+                        $("#message").text("Enter correct details");
+                    }
+                    else if(!email.includes("@")){
+                        $("#message").text("Include @ in the mail");
+                    }
+                    else{
+                        $("#message").text("form Successfully submitted");
+                    }
+                    $("#form")[0].reset("");
+
+                });
+            });
+        </script>
+            
+    </body>
+</html>

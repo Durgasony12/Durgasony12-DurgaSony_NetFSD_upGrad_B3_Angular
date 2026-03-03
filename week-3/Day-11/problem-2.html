@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title> Toggle</title>
+        <style>
+            .answer{
+            display:none;
+            }
+
+            .question{
+            cursor:pointer;
+            background:#eee;
+            padding:10px;
+            margin-top:5px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <h2 style="text-align:center">Frequently Asked Questions</h2>
+
+        <div class="faq-container">
+
+            <div class="question">1. What courses do you offer?</div>
+            <div class="answer">We offer Python, Java and .NET.</div>
+
+            <div class="question">2. what are the timings?</div>
+            <div class="answer">The timings are from 9 AM to 6 PM.</div>
+
+            <div class="question">3. Are the classes online or offline?</div>
+            <div class="answer">Both online and classroom training are available.</div>
+
+            <div class="question">4. Do you provide placements?</div>
+            <div class="answer">Yes, we provide placement assistance.</div>
+
+            <div class="question">5. What is the course duration?</div>
+            <div class="answer">Course duration ranges from 3 months.</div>
+
+        </div>
+        <script  src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(".question").click(function() {
+                    $(this).next(".answer").slideToggle();
+                });
+            });
+        </script>
+    </body>
+
+</html>
