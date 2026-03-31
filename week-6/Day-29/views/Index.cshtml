@@ -1,0 +1,33 @@
+﻿@using WebApplication1.Models;
+@model List<Product>
+<h1 class="display-5"> Products ordered</h1>
+<a btn="btn btn-primary" asp-action="Create">Create new</a>
+
+<table border="1" cellpadding="10" width="500" cellspacing="0" >
+    <thead>
+        <tr>
+            <th>PID</th>
+            <th>Pname</th>
+            <th> Price</th>
+            <th> Brand</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product item in Model)
+        {
+            <tr>
+                <td>@item.PID</td>
+                <td>@item.Pname</td>
+                <td>@item.Price</td>
+                <td>@item.Brand</td>
+                <td>
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@item.PID">>Details </a> |
+                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@item.PID">>Edit </a> |
+                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@item.PID">>Delete </a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

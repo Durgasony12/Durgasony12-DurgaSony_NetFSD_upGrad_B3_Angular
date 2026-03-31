@@ -1,0 +1,19 @@
+﻿@using WebApplication1.Models;
+@model Product 
+
+<h1> Single product details</h1>
+
+@if (Model == null)
+{
+    <p>product details are not available</p>
+}
+else
+{
+    <div>
+        Product ID : @Model.PID <br/>
+        Product Pname : @Model.Pname <br />
+        Product Price: @Model.Price <br />
+        Product Brand: @Model.Brand
+    </div>
+}
+    
