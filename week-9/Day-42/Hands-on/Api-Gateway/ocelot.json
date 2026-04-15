@@ -1,0 +1,34 @@
+{
+  "Routes": [
+    // Route for Category Service
+    {
+      "UpstreamPathTemplate": "/api/category/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/category/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7260
+        }
+      ]
+    },
+
+    // Route for Contact Service
+    {
+      "UpstreamPathTemplate": "/api/contact/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "DownstreamPathTemplate": "/api/contact/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7095
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7106" // Your gateway URL
+  }
+}
